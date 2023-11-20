@@ -1,7 +1,7 @@
 import pandas as pd
 from pysus.online_data.SIH import download
 
-ano = 2019
+ano = 2023
 estado = 'DF'
 meses = [1, 2, 3]  # Exemplo: Baixar dados para janeiro, fevereiro e março
 
@@ -19,8 +19,12 @@ for mes in meses:
 
 # Prossiga para salvar em CSV somente se houver dados
 if not dados_completos.empty:
-    caminho_arquivo_csv = '/home/daniel.moraes/amb_testes_daniel/pysus/arquivos_csv/SIH_DF.csv'
-    dados_completos.to_csv(caminho_arquivo_csv, index=False)
+    caminho_arquivo = 'arquivos_csv/SIH_DF.txt'
+    #dados_completos.to_csv(caminho_arquivo_csv, index=False)
+    #arquivo txt
+    dados_completos.to_csv(caminho_arquivo, sep='\t', index=False)
+
+
 else:
     print("Nenhum dado foi baixado.")
 
