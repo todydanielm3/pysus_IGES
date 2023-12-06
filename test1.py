@@ -28,9 +28,9 @@ def insert_into_db(data_frame, db_name, table_name, user, password, host, port):
     print("Dados inseridos com sucesso no banco de dados.")
 
 # Defina os parâmetros para os quais você deseja extrair os dados
-uf = 'DF'  # Estado de São Paulo
-year = 2022
-months = [12]
+uf = 'DF'  # Estado
+year = 2022 # Ano
+months = [12] # Mês 
 #months = [1, 2]  # Janeiro e Fevereiro
 local_dir = './'  # Diretório local para salvar os arquivos baixados
 
