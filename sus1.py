@@ -8,7 +8,8 @@ meses = [1, 2, 3]  # Exemplo: Baixar dados para janeiro, fevereiro e março
 dados_completos = pd.DataFrame()
 
 for mes in meses:
-    caminho_arquivo = download(estado, ano, mes)
+    caminho_arquivo = ''
+
 
     # Verifique se o arquivo foi baixado
     if caminho_arquivo:

@@ -1,0 +1,143 @@
+import psycopg2
+
+# Substitua pelos detalhes de conexão
+user = 'daniel_iges'
+password = 'iges'
+host = 'localhost'
+port = '5432'
+db_name = 'sih_db'
+
+# Estabelece a conexão com o banco de dados
+conn = psycopg2.connect(dbname=db_name, user=user, password=password, host=host, port=port)
+cursor = conn.cursor()
+
+# Criação da tabela com as colunas apropriadas
+create_table_query = '''
+CREATE TABLE sih_table (
+    UF_ZI VARCHAR(10),
+    ANO_CMPT INT,
+    MES_CMPT INT,
+    ESPEC VARCHAR(10),
+    CGC_HOSP VARCHAR(20),
+    N_AIH VARCHAR(20),
+    IDENT INT,
+    CEP VARCHAR(10),
+    MUNIC_RES VARCHAR(10),
+    NASC VARCHAR(10),
+    SEXO INT,
+    UTI_MES_IN INT,
+    UTI_MES_AN INT,
+    UTI_MES_AL INT,
+    UTI_MES_TO INT,
+    MARCA_UTI VARCHAR(10),
+    UTI_INT_IN INT,
+    UTI_INT_AN INT,
+    UTI_INT_AL INT,
+    UTI_INT_TO INT,
+    DIAR_ACOM INT,
+    QT_DIARIAS INT,
+    PROC_SOLIC VARCHAR(20),
+    PROC_REA VARCHAR(20),
+    VAL_SH DECIMAL,
+    VAL_SP DECIMAL,
+    VAL_SADT DECIMAL,
+    VAL_RN DECIMAL,
+    VAL_ACOMP DECIMAL,
+    VAL_ORTP DECIMAL,
+    VAL_SANGUE DECIMAL,
+    VAL_SADTSR DECIMAL,
+    VAL_TRANSP DECIMAL,
+    VAL_OBSANG DECIMAL,
+    VAL_PED1AC DECIMAL,
+    VAL_TOT DECIMAL,
+    VAL_UTI DECIMAL,
+    US_TOT DECIMAL,
+    DT_INTER VARCHAR(10),
+    DT_SAIDA VARCHAR(10),
+    DIAG_PRINC VARCHAR(10),
+    DIAG_SECUN VARCHAR(10),
+    COBRANCA INT,
+    NATUREZA INT,
+    NAT_JUR INT,
+    GESTAO INT,
+    RUBRICA INT,
+    IND_VDRL INT,
+    MUNIC_MOV VARCHAR(10),
+    COD_IDADE INT,
+    IDADE INT,
+    DIAS_PERM INT,
+    MORTE INT,
+    NACIONAL INT,
+    NUM_PROC INT,
+    CAR_INT INT,
+    TOT_PT_SP INT,
+    CPF_AUT VARCHAR(20),
+    HOMONIMO INT,
+    NUM_FILHOS INT,
+    INSTRU INT,
+    CID_NOTIF VARCHAR(10),
+    CONTRACEP1 INT,
+    CONTRACEP2 INT,
+    GESTRISCO INT,
+    INSC_PN VARCHAR(20),
+    SEQ_AIH5 VARCHAR(20),
+    CBOR VARCHAR(10),
+    CNAER VARCHAR(10),
+    VINCPREV VARCHAR(10),
+    GESTOR_COD VARCHAR(20),
+    GESTOR_TP VARCHAR(10),
+    GESTOR_CPF VARCHAR(20),
+    GESTOR_DT VARCHAR(10),
+    CNES VARCHAR(10),
+    CNPJ_MANT VARCHAR(20),
+    INFEHOSP INT,
+    CID_ASSO VARCHAR(10),
+    CID_MORTE VARCHAR(10),
+    COMPLEX INT,
+    FINANC INT,
+    FAEC_TP VARCHAR(10),
+    REGCT INT,
+    RACA_COR INT,
+    ETNIA INT,
+    SEQUENCIA INT,
+    REMESSA VARCHAR(20),
+    AUD_JUST VARCHAR(20),
+    SIS_JUST VARCHAR(20),
+    VAL_SH_FED DECIMAL,
+    VAL_SP_FED DECIMAL,
+    VAL_SH_GES DECIMAL,
+    VAL_SP_GES DECIMAL,
+    VAL_UCI DECIMAL,
+    MARCA_UCI VARCHAR(10),
+    DIAGSEC1 VARCHAR(10),
+    DIAGSEC2 VARCHAR(10),
+    DIAGSEC3 VARCHAR(10),
+    DIAGSEC4 VARCHAR(10),
+    DIAGSEC5 VARCHAR(10),
+    DIAGSEC6 VARCHAR(10),
+    DIAGSEC7 VARCHAR(10),
+    DIAGSEC8 VARCHAR(10),
+    DIAGSEC9 VARCHAR(10),
+    TPDISEC1 INT,
+    TPDISEC2 INT,
+    TPDISEC3 INT,
+    TPDISEC4 INT,
+    TPDISEC5 INT,
+    TPDISEC6 INT,
+    TPDISEC7 INT,
+    TPDISEC8 INT,
+    TPDISEC9 INT
+);
+'''
+
+drop_table_query = "DROP TABLE IF EXISTS sih_table;"
+cursor.execute(drop_table_query)
+
+
+conn.commit()
+
+cursor.close()
+conn.close()
+
+print("Tabela criada com sucesso.")
+
